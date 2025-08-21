@@ -52,47 +52,11 @@
 	status = "disabled";
 };
 
-/*
- * Copy from app.overlay as the board overlay take precedence
- * over app overlay.
- */
 
 / {
 	chosen {
 		zephyr,code-partition = &boot_partition;
 	};
-};
-
-&uart136 {
-    status = "disabled";
-};
-
-&pwm130 {
-    status = "disabled";
-};
-
-&adc {
-    status = "disabled";
-};
-
-&nfct {
-    status = "disabled";
-};
-
-&can120 {
-    status = "disabled";
-};
-
-&gpio6 {  
-  zephyr,pm-device-runtime-auto;
-}; 
-
-&gpio9 {  
-  zephyr,pm-device-runtime-auto;
-}; 
-
-&gpiote130 {
-    zephyr,pm-device-runtime-auto;
 };
 
 /* From https://github.com/nrfconnect/sdk-zephyr/pull/3212 */

@@ -10,38 +10,6 @@
 	reg = <0x2f000000 0x40000>;
 };
 
-&uart136 {
-    status = "disabled";
-};
-
-&pwm130 {
-    status = "disabled";
-};
-
-&adc {
-    status = "disabled";
-};
-
-&nfct {
-    status = "disabled";
-};
-
-&can120 {
-    status = "disabled";
-};
-
-&gpio6 {  
-  zephyr,pm-device-runtime-auto;
-}; 
-
-&gpio9 {  
-  zephyr,pm-device-runtime-auto;
-}; 
-
-&gpiote130 {
-    zephyr,pm-device-runtime-auto;
-};
-
 /* From https://github.com/nrfconnect/sdk-zephyr/pull/3212 */
 
 &cpuapp_cpusys_ipc {
