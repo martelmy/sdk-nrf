@@ -1,22 +1,7 @@
 /*
  * Copyright (c) 2025 Nordic Semiconductor ASA
  *
- * SPDX-License-Identifier: LicenseRef-Nordic-5-Clause
- */
-
-#include "nrf54h20dk_nrf54h20_memory_map_merged_slot.dtsi"
-
-/ {
-	chosen {
-		zephyr,code-partition = &boot_partition;
-	};
-};
-
-/*
- * Copy required overlay for mcuboot from bootloader/mcuboot.
- *
- * Required as the overlay in bootloader/mcuboot is ignored due to
- * FILE_SUFFIX="merged_slot" matching this overlay instead.
+ * SPDX-License-Identifier: Apache-2.0
  */
 
 &gdpwr {
@@ -67,6 +52,51 @@
 	status = "disabled";
 };
 
+/*
+ * Copy from app.overlay as the board overlay take precedence
+ * over app overlay.
+ */
+
+/ {
+	chosen {
+		zephyr,code-partition = &boot_partition;
+	};
+};
+
 &uart136 {
     status = "disabled";
+};
+
+&pwm130 {
+    status = "disabled";
+};
+
+&adc {
+    status = "disabled";
+};
+
+&nfct {
+    status = "disabled";
+};
+
+&can120 {
+    status = "disabled";
+};
+
+&gpio6 {  
+  zephyr,pm-device-runtime-auto;
+}; 
+
+&gpio9 {  
+  zephyr,pm-device-runtime-auto;
+}; 
+
+&gpiote130 {
+    zephyr,pm-device-runtime-auto;
+};
+
+/* From https://github.com/nrfconnect/sdk-zephyr/pull/3212 */
+
+&cpuapp_cpusys_ipc {
+	unbound = "enable";
 };

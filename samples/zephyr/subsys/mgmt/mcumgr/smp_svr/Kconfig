@@ -1,0 +1,11 @@
+#
+# Copyright (c) 2023 Nordic Semiconductor ASA
+#
+# SPDX-License-Identifier: LicenseRef-Nordic-5-Clause
+#
+
+source "Kconfig.zephyr"
+
+config FIRST_SLEEP_OFFSET
+	bool "Enable the time shift before first sleep in a loop"
+	default n
