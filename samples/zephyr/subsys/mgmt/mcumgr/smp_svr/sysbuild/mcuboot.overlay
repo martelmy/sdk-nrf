@@ -58,9 +58,3 @@
 		zephyr,code-partition = &boot_partition;
 	};
 };
-
-/* From https://github.com/nrfconnect/sdk-zephyr/pull/3212 */
-
-&cpuapp_cpusys_ipc {
-	unbound = "enable";
-};
